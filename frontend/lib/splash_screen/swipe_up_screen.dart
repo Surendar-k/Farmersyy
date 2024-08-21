@@ -212,7 +212,7 @@ class _SwipeUpScreenState extends State<SwipeUpScreen>
 
   Widget _buildLoginForm(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.62,
+      height: MediaQuery.of(context).size.height * 0.63,
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.white,
