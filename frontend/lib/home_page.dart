@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'seller_page.dart'; // Import SellerPage
+import 'buyer_page.dart'; // Import BuyerPage
 
 class HomePage extends StatefulWidget {
   @override
@@ -49,6 +51,20 @@ class _HomePageState extends State<HomePage> {
       duration: Duration(seconds: 1),
       curve: Curves.easeInOut,
     );
+  }
+
+  void _navigateToPage() {
+    if (_isSellerSelected) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SellerPage()),
+      );
+    } else if (_isBuyerSelected) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => BuyerPage()),
+      );
+    }
   }
 
   @override
@@ -112,18 +128,19 @@ class _HomePageState extends State<HomePage> {
       key: _homeKey,
       padding: EdgeInsets.all(16.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,  // Center content horizontally
+        crossAxisAlignment:
+            CrossAxisAlignment.center, // Center content horizontally
         children: [
           Text(
             'Fresh Farm Here!!',
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center,  // Center the text
+            textAlign: TextAlign.center, // Center the text
           ),
           SizedBox(height: 20),
           Text(
             'Choose Your Role?',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-            textAlign: TextAlign.center,  // Center the text
+            textAlign: TextAlign.center, // Center the text
           ),
           SizedBox(height: 20),
           Row(
@@ -132,24 +149,26 @@ class _HomePageState extends State<HomePage> {
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    _isSellerSelected = !_isSellerSelected;
-                    if (_isSellerSelected) _isBuyerSelected = false;
+                    _isSellerSelected = true;
+                    _isBuyerSelected = false;
                   });
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: _isSellerSelected ? Colors.green : Colors.grey,
+                  backgroundColor:
+                      _isSellerSelected ? Colors.green : Colors.grey,
                 ),
                 child: Text('Seller'),
               ),
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    _isBuyerSelected = !_isBuyerSelected;
-                    if (_isBuyerSelected) _isSellerSelected = false;
+                    _isBuyerSelected = true;
+                    _isSellerSelected = false;
                   });
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: _isBuyerSelected ? Colors.orange : Colors.grey,
+                  backgroundColor:
+                      _isBuyerSelected ? Colors.orange : Colors.grey,
                 ),
                 child: Text('Buyer'),
               ),
@@ -159,10 +178,19 @@ class _HomePageState extends State<HomePage> {
           Center(
             child: ElevatedButton(
               onPressed: () {
-                // Handle Get Started action
+                if (_isSellerSelected || _isBuyerSelected) {
+                  _navigateToPage(); // Navigate to SellerPage or BuyerPage
+                } else {
+                  // Optionally show a message if no role is selected
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Please select a role before continuing.'),
+                    ),
+                  );
+                }
               },
               child: Text(
-                'Get Started',
+                'Get Started!',
                 style: TextStyle(fontSize: 20),
               ),
               style: ElevatedButton.styleFrom(
@@ -264,7 +292,7 @@ class _HomePageState extends State<HomePage> {
           SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
-              // Handle form submission
+              // Handle submit logic
             },
             child: Text('Submit'),
           ),
