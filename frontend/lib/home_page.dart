@@ -200,7 +200,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(height: 20),
           Center(
-            child: Image.asset('assets/cupcoffee.png', fit: BoxFit.cover),
+            child: Image.asset('assets/logo.png', fit: BoxFit.cover),
           ),
           SizedBox(height: 50),
         ],
@@ -244,7 +244,7 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 10),
-          Image.asset('assets/cappuccino.png', fit: BoxFit.cover),
+          Image.asset('assets/vege.jpg', fit: BoxFit.cover),
           SizedBox(height: 20),
           Text(
             'FarmNest makes it easy to get farm-fresh vegetables and other products delivered straight to your home. We offer a wide range of high-quality, locally-sourced produce, dairy, meats, and artisanal goods. Supporting local farmers, we ensure you receive the freshest ingredients with the convenience of home delivery. Experience farm-to-table living with FarmNest today!',

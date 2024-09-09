@@ -61,10 +61,13 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/cupcoffee.png
+    - assets/logo.png
     - assets/aboutus.jpg
-    - assets/aeropress.png
-    - assets/cappuccino.png
+    - assets/flowers.jpg
+    - assets/fruits.jpg
+    - assets/nuts.jpg
+    - assets/vegetables.jpg
+    - assets/vege.jpg
     
 
 

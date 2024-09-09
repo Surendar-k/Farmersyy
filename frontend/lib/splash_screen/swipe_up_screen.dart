@@ -143,7 +143,7 @@ class _SwipeUpScreenState extends State<SwipeUpScreen>
                     width: _imageSizeAnimation.value,
                     height: _imageSizeAnimation.value,
                     child: Image.asset(
-                      'assets/cupcoffee.png',
+                      'assets/logo.png',
                       fit: BoxFit.cover,
                     ),
                   ),
